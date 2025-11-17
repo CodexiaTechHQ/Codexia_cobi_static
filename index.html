@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodexiatechHQ KOBİ Dijital Dönüşüm Portalı</title>
+    <!-- Tailwind CSS (Bootstrap yerine daha modern bir görünüm için tercih edilmiştir, hızlı prototipleme için idealdir) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .section-heading {
+            border-bottom: 2px solid #3b82f6; /* Blue border for emphasis */
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+        /* Gizli Yönetici Paneli için özel stil */
+        #admin-panel {
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVİGASYON (HEADER) -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">
+                CodexiatechHQ <span class="text-blue-600">Vizyon</span>
+            </div>
+            <nav>
+                <a href="#hizmetler" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Hizmetler</a>
+                <a href="#teklif-formu" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition duration-150 shadow-md">Hemen Teklif Al</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ANA BÖLÜM (HERO) -->
+    <section class="py-20 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                KOBİ'ler İçin Risksiz Dijital Dönüşüm
+            </h1>
+            <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+                **Aşama 1 Odak:** Python/Flask ile Hızlı, Güvenli ve Gelir Odaklı Web Çözümleri.
+            </p>
+            <a href="#teklif-formu" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                Projenizi Hemen Başlatalım
+            </a>
+        </div>
+    </section>
+
+    <!-- HİZMETLER VE ÖZELLİKLER (AŞAMA 1 VURGUSU) -->
+    <section id="hizmetler" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-10 text-center section-heading mx-auto">
+                CodexiatechHQ Web Çözümünün Temel Özellikleri
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kart 1: Flask Hızı ve Maliyet Avantajı -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-2xl font-bold text-blue-600 mb-3">⚡ Hızlı Teslimat (3-5 Gün)</div>
+                    <p class="text-gray-600">
+                        Python/Flask ve Bootstrap altyapısı sayesinde şablon tabanlı projeleri minimum sürede hayata geçiririz. Bu, **hızlı faturalandırma ve nakit akışı** demektir.
+                    </p>
+                </div>
+                <!-- Kart 2: Teklif Yönetimi ve Müşteri Adayı -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-2xl font-bold text-blue-600 mb-3">🎯 Aktif Müşteri Yönetimi</div>
+                    <p class="text-gray-600">
+                        Gelişmiş "Teklif Al" formu ile pasif bir kartvizit yerine, potansiyel müşteri adayı (lead) toplayan aktif bir satış aracı sunarız.
+                    </p>
+                </div>
+                <!-- Kart 3: Finansal Stabilite -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-2xl font-bold text-blue-600 mb-3">💰 Öngörülebilir Aylık Gelir</div>
+                    <p class="text-gray-600">
+                        Tek seferlik kurulumun yanı sıra, hosting, SSL ve teknik bakım için **sabit aylık/yıllık yenileme ücreti** ile tekrarlayan gelir elde ederiz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEKLİF YÖNETİM FORMU -->
+    <section id="teklif-formu" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-10 text-center section-heading mx-auto">
+                Projeniz İçin Ücretsiz Teklif Alın
+            </h2>
+            <div id="message-box" class="hidden p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"></div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-200">
+                <!-- Bu form verisi, Flask backend'i tarafından işlenecektir -->
+                <form id="quoteForm">
+                    <!-- Proje Türü -->
+                    <div class="mb-5">
+                        <label for="projectType" class="block text-sm font-medium text-gray-700 mb-2">Hizmet Türü Nedir?</label>
+                        <select id="projectType" name="projectType" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                            <option value="">Lütfen Seçiniz</option>
+                            <option value="corporate_site">Kurumsal Web Sitesi (Flask)</option>
+                            <option value="e_commerce">E-Ticaret Sitesi (Geniş Kapsam)</option>
+                            <option value="mobile_app">Mobil Uygulama Prototipi (Kotlin)</option>
+                            <option value="other">Diğer / Danışmanlık</option>
+                        </select>
+                    </div>
+
+                    <!-- Bütçe Aralığı -->
+                    <div class="mb-5">
+                        <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Tahmini Bütçe Aralığınız (TL):</label>
+                        <input type="number" id="budget" name="budget" required min="1000" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Minimum 10.000 TL">
+                    </div>
+
+                    <!-- Proje Açıklaması -->
+                    <div class="mb-5">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Projenizi Kısaca Açıklayınız (Amacımız Hızlı Başlamak)</label>
+                        <textarea id="description" name="description" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="İhtiyaçlarınızı ve hedeflerinizi özetleyin..."></textarea>
+                    </div>
+
+                    <!-- İletişim Bilgileri -->
+                    <div class="mb-6">
+                        <label for="contact" class="block text-sm font-medium text-gray-700 mb-2">İletişim E-posta Adresiniz:</label>
+                        <input type="email" id="contact" name="contact" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="info@sirketiniz.com">
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition duration-300 transform hover:scale-[1.01] shadow-xl">
+                        Teklif Talebini Gönder (CodexiatechHQ'ya Ulaşır)
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SİMÜLE EDİLMİŞ GİZLİ YÖNETİCİ GİRİŞİ (FLASK/ADMİN PANEL SİMULASYONU) -->
+    <!-- Bu bölüm, görüşme sırasında "Veriler nereye gidiyor?" sorusuna yanıt vermek için kullanılabilir. -->
+    <section id="admin-login-section" class="py-12 bg-gray-200">
+        <div class="max-w-2xl mx-auto px-4 text-center">
+            <button id="showAdminButton" class="text-sm text-gray-500 hover:text-blue-600 underline focus:outline-none">
+                Yönetici Girişini Göster (Simülasyon)
+            </button>
+
+            <div id="admin-login-area" class="mt-4 hidden">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Admin Paneli (Simüle Edilmiş Flask Backend)</h3>
+                    <input type="password" id="adminPassword" placeholder="Şifre" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 mb-4">
+                    <button id="loginButton" class="w-full bg-gray-700 text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition duration-300">
+                        Giriş
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YÖNETİCİ PANELİ (GİZLİ VE Verilerin Gösterildiği Alan) -->
+    <section id="admin-panel" class="hidden py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center section-heading mx-auto">
+                Gelen Teklif Talepleri (Simüle Edilmiş Veritabanı)
+            </h2>
+            <p class="text-center text-gray-600 mb-8">
+                **Bu veri, normalde Python/Flask backend'i ve bir veritabanı (PostgreSQL/SQLite) tarafından yönetilir.**
+            </p>
+
+            <div id="submissions-container" class="space-y-4">
+                <!-- Teklifler buraya JS ile yüklenecek -->
+            </div>
+            
+            <button id="clearDataButton" class="mt-8 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-150">
+                Tüm Verileri Sil
+            </button>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 CodexiatechHQ Vizyon Projesi | Python/Flask Teknolojisi ile Güçlendirilmiştir.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: Form Yönetimi ve Simülasyon -->
+    <script>
+        // Veritabanı Simülasyonu: localStorage kullanılıyor. Flask'ta bu veriler DB'ye yazılacaktır.
+        const DB_KEY = 'codexiatech_quotes';
+        
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 1. Form verilerini topla
+            const formData = {
+                id: Date.now(),
+                projectType: document.getElementById('projectType').value,
+                budget: document.getElementById('budget').value,
+                description: document.getElementById('description').value,
+                contact: document.getElementById('contact').value,
+                date: new Date().toLocaleString('tr-TR')
+            };
+
+            // 2. Veritabanına (localStorage) kaydet
+            let quotes = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+            quotes.push(formData);
+            localStorage.setItem(DB_KEY, JSON.stringify(quotes));
+
+            // 3. Başarı mesajı göster ve formu sıfırla
+            const messageBox = document.getElementById('message-box');
+            messageBox.textContent = 'Teklif talebiniz başarıyla alındı! En kısa sürede size dönüş yapacağız.';
+            messageBox.classList.remove('hidden', 'text-red-700', 'bg-red-100');
+            messageBox.classList.add('text-green-700', 'bg-green-100');
+            
+            this.reset();
+            
+            // Mesajı 5 saniye sonra gizle
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Yönetici Paneli Fonksiyonları
+        document.getElementById('showAdminButton').addEventListener('click', function() {
+            const loginArea = document.getElementById('admin-login-area');
+            loginArea.classList.toggle('hidden');
+            this.textContent = loginArea.classList.contains('hidden') ? 'Yönetici Girişini Göster (Simülasyon)' : 'Yönetici Girişini Gizle';
+        });
+
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const password = document.getElementById('adminPassword').value;
+            const ADMIN_PASS = 'vizyon2025'; // Simülasyon şifresi
+
+            if (password === ADMIN_PASS) {
+                document.getElementById('admin-login-area').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                renderSubmissions(); // Verileri yükle
+            } else {
+                alert('Yanlış Şifre.');
+                document.getElementById('adminPassword').value = '';
+            }
+        });
+
+        document.getElementById('clearDataButton').addEventListener('click', function() {
+            if (confirm('Tüm kayıtlı teklifleri silmek istediğinizden emin misiniz?')) {
+                localStorage.removeItem(DB_KEY);
+                renderSubmissions();
+            }
+        });
+
+        function renderSubmissions() {
+            const container = document.getElementById('submissions-container');
+            container.innerHTML = '';
+            
+            const quotes = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+
+            if (quotes.length === 0) {
+                container.innerHTML = '<p class="text-center text-lg text-gray-500 p-10 bg-gray-100 rounded-xl">Henüz gelen teklif talebi bulunmamaktadır.</p>';
+                return;
+            }
+
+            quotes.forEach(quote => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-xl shadow-md border border-gray-100';
+                card.innerHTML = `
+                    <h4 class="text-xl font-semibold text-blue-600">Proje Tipi: ${quote.projectType.toUpperCase().replace('_', ' ')}</h4>
+                    <p class="text-gray-700 mt-2"><strong>Bütçe:</strong> ${quote.budget} TL</p>
+                    <p class="text-gray-700"><strong>İletişim:</strong> <a href="mailto:${quote.contact}" class="text-blue-500 hover:underline">${quote.contact}</a></p>
+                    <p class="text-gray-700 mt-3 border-t pt-2"><strong>Açıklama:</strong> ${quote.description}</p>
+                    <p class="text-xs text-gray-400 mt-2">Talep Tarihi: ${quote.date}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+    </script>
+</body>
+</html>
